@@ -63,6 +63,10 @@ function checkNumber(msg) {
       It was ${num}</h2>
       <button class="play-again" id="play-again">Play Again</button>
     `;
+    if (speechSynthesisAllowed) {
+      const msgToSay = new SpeechSynthesisUtterance("You guessed the number!");
+      speechSynthesis.speak(msgToSay);
+    }
   } else if (num > randomNum) {
     msgEl.innerHTML += "<div>Go lower!</div>";
     if (speechSynthesisAllowed) {
